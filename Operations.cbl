@@ -1,0 +1,142 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. Operations.
+       AUTHOR. Mathieu.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  NUMBER1 PIC 9(4).
+       01  NUMBER2 PIC 9(4).
+       01  NUMBER3 PIC 9(4).
+       01  NUMBER4 PIC 9(4).
+       01  RESULT  PIC 9(4)V9.
+
+       01  W1      PIC 9(2) VALUE 72.
+       01  W2      PIC 9(2) VALUE 45.
+       01  RESULT2 PIC 9    VALUE 0.
+       01  RESULT3 PIC 9(3) VALUE 0.
+
+       PROCEDURE DIVISION.
+           MOVE 10 TO NUMBER1.
+           MOVE 15 TO NUMBER2.
+
+           ADD NUMBER1 TO NUMBER2.
+           DISPLAY "ADD .. TO - OPERATOR.".
+           DISPLAY "NUMBER1 : " NUMBER1.
+           DISPLAY "NUMBER2 : " NUMBER2.
+           
+           
+           MOVE 10 TO NUMBER1.
+           MOVE 15 TO NUMBER2.
+
+           ADD NUMBER1 TO NUMBER2 GIVING NUMBER3.
+           DISPLAY "ADD .. TO - OPERATOR".
+           DISPLAY "WITH RESULT IN OTHER VARIABLE.".
+           DISPLAY "NUMBER1 : " NUMBER1.
+           DISPLAY "NUMBER2 : " NUMBER2.
+           DISPLAY "NUMBER3 : " NUMBER3.
+
+           
+           MOVE 10 TO NUMBER1.
+           MOVE 15 TO NUMBER2.
+           SUBTRACT NUMBER1 FROM NUMBER2.
+           DISPLAY "SUBTRACT .. FROM - OPERATOR.".
+           DISPLAY "NUMBER1 : " NUMBER1.
+           DISPLAY "NUMBER2 : " NUMBER2.
+
+
+           MOVE 10 TO NUMBER1.
+           MOVE 15 TO NUMBER2.
+           SUBTRACT NUMBER1 FROM NUMBER2 GIVING NUMBER3.
+           DISPLAY "SUBTRACT .. FROM - OPERATOR".
+           DISPLAY "WITH RESULT IN OTHER VARIABLE.".
+           DISPLAY "NUMBER1 : " NUMBER1.
+           DISPLAY "NUMBER2 : " NUMBER2.
+           DISPLAY "NUMBER3 : " NUMBER3.
+
+
+           MOVE 10 TO NUMBER1.
+           MOVE 15 TO NUMBER2.
+           MULTIPLY NUMBER1 BY NUMBER2.
+           DISPLAY "MULTIPLY .. BY - OPERATOR.".
+           DISPLAY "NUMBER1 : " NUMBER1.
+           DISPLAY "NUMBER2 : " NUMBER2.
+
+           
+           MOVE 10 TO NUMBER1.
+           MOVE 15 TO NUMBER2.
+           MULTIPLY NUMBER1 BY NUMBER2 GIVING NUMBER3.
+           DISPLAY "MULTIPLY .. BY - OPERATOR".
+           DISPLAY "WITH RESULT IN OTHER VARIABLE.".
+           DISPLAY "NUMBER1 : " NUMBER1.
+           DISPLAY "NUMBER2 : " NUMBER2.
+           DISPLAY "NUMBER3 : " NUMBER3.
+
+
+           
+           MOVE 10 TO NUMBER1.
+           MOVE 15 TO NUMBER2.
+           DIVIDE NUMBER1 INTO NUMBER2 GIVING NUMBER3.
+           DISPLAY "DIVIDE .. INTO  - OPERATOR.".
+           DISPLAY "NUMBER1 : " NUMBER1.
+           DISPLAY "NUMBER2 : " NUMBER2.
+           DISPLAY "NUMBER3 : " NUMBER3.
+
+
+           MOVE 10 TO NUMBER1.
+           MOVE 15 TO NUMBER2.
+           DIVIDE NUMBER2 BY NUMBER1 GIVING NUMBER3.
+           DISPLAY "DIVIDE .. BY  - OPERATOR.".
+           DISPLAY "NUMBER1 : " NUMBER1.
+           DISPLAY "NUMBER2 : " NUMBER2.
+           DISPLAY "NUMBER3 : " NUMBER3.
+
+
+           MOVE 10 TO NUMBER1.
+           MOVE 15 TO NUMBER2.
+           DIVIDE NUMBER2 BY NUMBER1 GIVING NUMBER3 REMAINDER NUMBER4.
+           DISPLAY "DIVIDE .. BY - OPERATOR && REMAINDER.".
+           DISPLAY "NUMBER1 : " NUMBER1.
+           DISPLAY "NUMBER2 : " NUMBER2.
+           DISPLAY "NUMBER3 : " NUMBER3.
+           DISPLAY "NUMBER4 : " NUMBER4.
+
+
+           MOVE 14 TO NUMBER1.
+           MOVE 153 TO NUMBER2.
+           DIVIDE NUMBER2 BY NUMBER1 GIVING NUMBER3 REMAINDER NUMBER4.
+           DISPLAY "DIVIDE .. BY - OPERATOR && REMAINDER.".
+           DISPLAY "NUMBER1 : " NUMBER1.
+           DISPLAY "NUMBER2 : " NUMBER2.
+           DISPLAY "NUMBER3 : " NUMBER3.
+           DISPLAY "NUMBER4 : " NUMBER4.
+
+
+
+           MOVE 10 TO NUMBER1.
+           MOVE 15 TO NUMBER2.
+           MOVE 4 TO NUMBER3.
+           COMPUTE RESULT = (NUMBER1*NUMBER2)+(100/NUMBER3).
+           DISPLAY "COMPUTE OPERATOR".
+           DISPLAY "RESULTAT : " RESULT.
+           
+           COMPUTE RESULT = 9.564 + 11.335.
+           DISPLAY "RESULTAT : " RESULT.
+
+           COMPUTE RESULT ROUNDED = 9.564 + 11.335.
+           DISPLAY "RESULTAT ROUNDED : " RESULT.
+
+           ADD W1 to W2 GIVING RESULT2
+             ON SIZE ERROR
+               DISPLAY "ON SIZE ERROR - LENGHT ERROR"
+               DISPLAY RESULT2
+           END-ADD.
+
+           ADD W1 to W2 GIVING RESULT3
+             ON SIZE ERROR
+               DISPLAY "ON SIZE ERROR - LENGHT ERROR"
+               DISPLAY RESULT3
+           END-ADD.
+           DISPLAY "RESULT3 : " RESULT3.
+
+           STOP RUN.
+           
